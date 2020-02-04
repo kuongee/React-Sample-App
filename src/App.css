@@ -1,38 +1,29 @@
-.App {
+.ComponentWrapper {
+  border: 1px solid black;
+  float: left;
   text-align: center;
+  margin: 10px 10px 0px 0;
+  padding: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ClassComponent {
+  background-color: palegoldenrod;
+  width: 300px;
+  height: 300px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.FunctionComponent {
+  background-color: palevioletred;
+  width: 300px;
+  height: 300px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.MainWrapper {
+  border: 1px solid black;
+  width: 1000px;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -511px;
 }
