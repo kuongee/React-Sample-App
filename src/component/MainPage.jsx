@@ -3,38 +3,35 @@ import ClassComponent from "./ClassComponent";
 import FunctionComponent from "./FunctionComponent";
 
 const MainPage = props => {
-  const [defaultValue, setDefaultValue] = useState("This is default.");
-  const [countValue, setCountValue] = useState(0);
+  const [defaultValue, setDefaultValue] = useState({
+    textValue: "FromMain",
+    countValue: 0
+  });
+
+  const [rerender, setRerender] = useState(0);
 
   const handleInit = () => {
     console.log("init");
-    setDefaultValue("");
+    setDefaultValue({ textValue: "FromMain", countValue: 0 });
   };
 
-  const handleCount = op => {
-    let value = countValue;
-    if (op === "minus") {
-      value -= 1;
-      if (value >= 0) {
-        setCountValue(value);
-      }
-    } else if (op === "plus") {
-      setCountValue(++value);
-    }
+  const handleRender = () => {
+    console.log("rerender");
+    const value = rerender;
+    setRerender(value + 1);
   };
 
   return (
     <div className="MainWrapper">
       <div>
         <button onClick={handleInit}> 초기화 </button>
-        <div>
-          <button onClick={() => handleCount("minus")}> - </button>
-          <span> {countValue} </span>
-          <button onClick={() => handleCount("plus")}> + </button>
-        </div>
+        <button onClick={handleRender}> 다시 그려 </button>
       </div>
       <ClassComponent defaultValue={defaultValue} />
       <FunctionComponent defaultValue={defaultValue} />
+      <div>
+        <span>{rerender}</span>
+      </div>
     </div>
   );
 };
